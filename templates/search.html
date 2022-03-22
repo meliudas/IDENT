@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="about">
+        <div class="container">
+            <div class="inner">
+                <div class="bread-crumbs">
+                    <a href="{% url 'index' %}" class="link">Главная /</a> <span class="cur-link">Поиск</span>
+                </div>
+                <h1 class="title">Поиск</h1>
+                {% if query != '' %}
+
+                    {% if results %}
+                        Результатов: {{ results.count }}
+                    {% else %}
+                        Ничего не найдено.
+                    {% endif %}
+
+                    <div class="news-grid">
+                        {% for i in results %}
+                            <a href="{% url 'news_detail' pk=i.id %}" class="underline">
+                                <div class="news-item">
+                                    <h3 class="title">{{ i.title }}</h3>
+                                    <img src="{{ i.image.url }}" alt="">
+                                    <div class="info">
+                                        {#                                <time class="date">{{ i.date.date }}</time>#}
+                                        <p class="desc">{{ i.description }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <meta http-equiv="Refresh" content="0; url='{% url "news" %}'"/>
+                {% endif %}
+
+                <div class="pagination">
+                    <div class="pag-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 15L4 10L9 5" stroke="#7C7C7C" stroke-width="1.6" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M14 15L9 10L14 5" stroke="#7C7C7C" stroke-width="1.6" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="pag-item">1</div>
+                    <div class="pag-item">2</div>
+                    <div class="pag-item">3</div>
+                    <div class="pag-item">4</div>
+                    <div class="pag-item">...</div>
+                    <div class="pag-item">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 15L16 10L11 5" stroke="#7C7C7C" stroke-width="1.6" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M6 15L11 10L6 5" stroke="#7C7C7C" stroke-width="1.6" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for i in service %}
+<div class="service-intro" style="background-image: url('{{ i.image.url }}')">
+    <div class="container">
+        <h1 class="title">{{ i.title }}</h1>
+        <p class="text">{{ i.description }}
+        </p>
+{#        <div class="button" id="call-modal">тык тык</div>#}
+        <a href="https://www.youtube.com/watch?v=tZnQrBF3GTs" class="link">тыкни</a>
+    </div>
+</div>
+
+{% endfor %}
+
+<section class="service">
+    <div class="container">
+         {% for i in servicehelp %}
+        <div class="inner">
+            <div class="img"><img src="{{ i.image.url }}" alt=""></div>
+            <div class="info">
+                <div class="grid">
+                    <div class="item">
+                        <h4 class="title">{{ i.title }}</h4>
+                        <p class="text">{{ i.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+                <h4 class="con-title">Контакты</h4>
+                <div class="equipment-grid">
+                    <div class="eq-item">
+                        <h4 class="title">iDent центр</h4>
+                        <div class="contacts">
+                            <span class="con-link icon map">121614, г. Москва, Осенний бульвар, д. 12, к. 10</span>
+                            <div>
+                                <a href="tel:+996 774 102 811" class="con-link icon tel">+996 774 102 811,</a>
+                                <a href="tel:+996 774 102 811" class="con-link tel">+996 774 102 811</a>
+                            </div>
+                            <div>
+                                <a href="mailto:Mail05@gmail.com" class="con-link icon email">Mail05@gmail.com</a>
+                                <a href="#!" class="con-link icon flag">Sunrise.studio.pro@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eq-item">
+                        <h4 class="title">iDent центр</h4>
+                        <div class="contacts">
+                            <span class="con-link icon map">121614, г. Москва, Осенний бульвар, д. 12, к. 10</span>
+                            <div>
+                                <a href="tel:+996 774 102 811" class="con-link icon tel">+996 774 102 811,</a>
+                                <a href="tel:+996 774 102 811" class="con-link tel">+996 774 102 811</a>
+                            </div>
+                            <div>
+                                <a href="mailto:Mail05@gmail.com" class="con-link icon email">Mail05@gmail.com</a>
+                                <a href="#!" class="con-link icon flag">Sunrise.studio.pro@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="modal-wrap" id="modal">
+    <div class="close-layer close-modal"></div>
+    <div class="modal">
+        <h2 class="title">Заявка на консультацию <span class="close close-modal"></span></h2>
+        <form action="" class="form">
+            <div>
+                <span class="label">ФИО*</span>
+                <input type="text" class="field" placeholder="Фамилия Имя Отчество" required>
+            </div>
+            <div>
+                <span class="label">Ваш город*</span>
+                <input type="text" class="field" placeholder="Ваш город" required>
+            </div>
+            <div>
+                <span class="label">Ваш номер телефона*</span>
+                <input type="text" class="field" placeholder="+996 (XXX) XX XX XX" required>
+            </div>
+            <div>
+
+<span class="label">Ваша почта*</span>
+                <input type="email" class="field" placeholder="Электронный адрес" required>
+            </div>
+            <div>
+                <span class="label">Тема обращения*</span>
+                <select class="field" required>
+                    <option value="Расширенная гарантия" selected>Расширенная гарантия</option>
+                    <option value="Расширенная гарантия">Расширенная гарантия</option>
+                    <option value="Расширенная гарантия">Расширенная гарантия</option>
+                </select>
+            </div>
+            <div>
+                <span class="label">Дополнительная информация</span>
+                <textarea class="field" placeholder="Что у вас произошло?"></textarea>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" required>
+                <a href="#!" class="link">Согласен с условиями публичной оферты </a>
+            </div>
+            <button type="submit" class="button">Отправить</button>
+        </form>
+    </div>
+</div>
+<!--TODO: чтобы вызвать модалку успешно отравлено, добавить класс active на success-modal-->
+<div class="modal-wrap" id="success-modal">
+    <div class="close-layer close-modal"></div>
+    <div class="modal">
+        <h3 class="title">Успешно отправлено!</h3>
+        <p class="text">Ваш запрос успешно отправлен. В ближайшее время с вами свяжутся.</p>
+        <div class="button close-modal">Хорошо</div>
+    </div>
+</div>
+{% endblock %}

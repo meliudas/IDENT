@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="about">
+        <div class="container">
+            <div class="inner">
+                <div class="bread-crumbs">
+                    <a href="{% url 'index' %}" class="link">Главная /</a> <span class="cur-link">Новости</span>
+                </div>
+                <h1 class="title">Новости</h1>
+                {#                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, doloribus!</p>#}
+                <div class="news-grid">
+                    {% for i in news %}
+                        <a href="{% url 'news_detail' pk=i.id  %}" class="underline">
+                        <div class="news-item">
+                                <h3 class="title">{{ i.title }}</h3>
+                                <img src="{{ i.image.url }}" alt="">
+                                <div class="info">
+                                    {#                                <time class="date">{{ i.date.date }}</time>#}
+                                    <p class="desc">{{ i.description }}</p>
+                                </div>
+
+                            {#                            <a href="{{ i.url }}" class="link"></a>#}
+                        </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="pagination">
+                    <div class="pag-item">
+                    </div>
+                    <div class="pag-item">1</div>
+                    <div class="pag-item">2</div>
+                    <div class="pag-item">3</div>
+                    <div class="pag-item">4</div>
+                    <div class="pag-item">...</div>
+                    <div class="pag-item">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

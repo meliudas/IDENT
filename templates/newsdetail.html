@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="about">
+        <div class="container">
+            <div class="inner">
+                <div class="bread-crumbs">
+                    <a href="{% url 'index' %}" class="link">Главная /</a> <span class="cur-link">Новости</span>
+                </div>
+                <h1 class="title">Новости</h1>
+                {#                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, doloribus!</p>#}
+                <div class="news-grid">
+                        <div class="news-item">
+                                <h3 class="title">{{ news_detail.title }}</h3>
+                                <img src="{{ news_detail.image.url }}" alt="">
+                                <div class="info">
+                                    {#                                <time class="date">{{ i.date.date }}</time>#}
+                                    <p class="desc">{{ news_detail.description }}</p>
+                                </div>
+
+                            {#                            <a href="{{ i.url }}" class="link"></a>#}
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

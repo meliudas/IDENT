@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная</title>
+    <link rel="stylesheet" href="/assets/font/stylesheet.css">
+    <link rel="stylesheet" href="/assets/style/swiper.css">
+    <link rel="stylesheet" href="/assets/style/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="top">
+        <div class="container">
+            <div class="inner">
+                <div class="tels">
+                    <a href="tel:+996 999 594 321," class="tel header-font">+996 999 594 321,</a>
+                    <a href="tel:+996 999 594 321," class="tel header-font">+996 999 594 321,</a>
+                    <a href="tel:+996 999 594 321," class="tel header-font">+996 999 594 321,</a>
+                </div>
+                <div class="right">
+                    <div class="address header-font">г.Бишкек ул.Манаса 7a</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <div class="bottom">
+        <div class="container">
+            <div class="inner">
+                <a href="{% url 'index' %}" class="logo"><img src="../assets/img/svg/logo.svg" alt="logo" class="logo"></a>
+                <nav class="nav">
+                    <div class="close-nav">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="link-wrap">
+                        <a href="{% url 'catalog' %}" class="link header-font">Продукция</a>
+                        <div class="link-list">
+                            <a href="{% url 'product_inner' %}" class="link-list-item header-font">Стоматологическое инструменты</a>
+                            <a href="" class="link-list-item header-font">Стоматологическое оборудование</a>
+                            <a href="" class="link-list-item header-font">Скачать каталог</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'service' %}" class="link header-font">Сервис</a>
+                        <a href="{% url 'about' %}" class="link header-font">О компании</a>
+                         <a href="{% url 'news' %}" class="link header-font">Новости</a>
+                        <a href="{% url 'contacts' %}" class="link header-font">Контакты</a>
+
+                </nav>
+                <form class="search">
+                    <input type="text" class="search-field header-font" placeholder="Искать">
+                </form>
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer class="footer">
+    <div class="container">
+        <div class="inner">
+            <div>
+                <img src="../assets/img/svg/footer-logo.svg" alt="" class="logo">
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, quidem?</p>
+                <div class="socials">
+                    <a href="" class="soc-link"><img src="../assets/img/svg/vk.svg" alt="" class="soc-icon"></a>
+                    <a href="" class="soc-link"><img src="../assets/img/svg/fac.svg" alt="" class="soc-icon"></a>
+                    <a href="#" class="soc-link"><img src="../assets/img/svg/youtube.svg" alt="" class="soc-icon"></a>
+                    <a href="#" class="soc-link"><img src="../assets/img/svg/inst.svg" alt="" class="soc-icon"></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="title">Быстрая навигация</h4>
+                <a href="#" class="link">Политика конфиденциальности</a>
+                <a href="#" class="link">Политика в отношении cookie-файлов</a>
+                <a href="#" class="link">Контакты офисов</a>
+                <a href="#" class="link">Вебинары</a>
+                <a href="#" class="link">Технический портал</a>
+            </div>
+            <div>
+                <a href="#" class="link">Extranet</a>
+                <a href="#" class="link">KaVo Trademarks</a>
+            </div>
+            <div>
+                <h4 class="title">Связаться с нами</h4>
+                <a href="mailto:hello@gmail.com" class="link con-link email">hello@gmail.com</a>
+                <a href="tel:+996 755 432 210" class="link con-link tel">+996 755 432 210</a>
+                <span class="link con-link map">Chyi 28/1</span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            © <span></span> iDent
+        </div>
+    </div>
+</footer>
+
+<script src="../assets/js/script.js"></script>
+<script src="../assets/js/swiper.js"></script>
+<script>
+    var swiper = new Swiper(".intro-swiper", {
+        effect: "fade",
+        navigation: {
+            nextEl: ".intro-btn-next",
+            prevEl: ".intro-btn-prev",
+        },
+        pagination: {
+            el: ".intro-pagination",
+            type: "fraction"
+        },
+        loop: true
+    })
+
+    var swiper2 = new Swiper(".swiper2", {
+        navigation: {
+            nextEl: ".swiper2-next",
+            prevEl: ".swiper2-prev",
+        },
+        loop: true
+    })
+</script>
+</body>
+</html>

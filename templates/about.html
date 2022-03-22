@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="about">
+    {% for i in about %}
+    <div class="container">
+        <div class="inner">
+            <div class="bread-crumbs">
+                <a href="" class="link">Главная /</a> <span class="cur-link">Стоматологические инструменты</span>
+            </div>
+            <h1 class="title">{{ i.title }}</h1>
+            <p class="text">{{ i.description }}</p>
+            <img src="{{ i.image.url }}" alt="">
+            <p class="text">{{ i.description }}</p>
+            <div class="equipment-grid">
+                <div class="eq-item">
+                    <h4 class="title">iDent центр</h4>
+                    <div class="contacts">
+                        <span class="con-link icon map">121614, г. Москва, Осенний бульвар, д. 12, к. 10</span>
+                        <div>
+                            <a href="tel:+996 774 102 811" class="con-link icon tel">+996 774 102 811,</a>
+                            <a href="tel:+996 774 102 811" class="con-link tel">+996 774 102 811</a>
+                        </div>
+                        <div>
+                            <a href="mailto:Mail05@gmail.com" class="con-link icon email">Mail05@gmail.com</a>
+                            <a href="" class="con-link icon flag">Sunrise.studio.pro@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="eq-item">
+                    <h4 class="title">iDent центр</h4>
+                    <div class="contacts">
+                        <span class="con-link icon map">121614, г. Москва, Осенний бульвар, д. 12, к. 10</span>
+                        <div>
+                            <a href="tel:+996 774 102 811" class="con-link icon tel">+996 774 102 811,</a>
+                            <a href="tel:+996 774 102 811" class="con-link tel">+996 774 102 811</a>
+                        </div>
+                        <div>
+                            <a href="mailto:Mail05@gmail.com" class="con-link icon email">Mail05@gmail.com</a>
+                            <a href="" class="con-link icon flag">Sunrise.studio.pro@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+{% endblock %}
