@@ -6,17 +6,18 @@
 
 <div class="product">
     <div class="container">
+        {% for i in product %}
     <div class="inner">
     <div class="left">
         <div class="product-swiper swiper">
             <div class="swiper-wrapper">
-                {% for i in product %}
+
                         <img src="{{ i.image.url }}" alt="">
             </div>
     </div>
 <div class="info">
     <div class="bread-crumbs">
-        <a href="#!" class="link">Главная /</a> <span class="cur-link">Стоматологические инструменты</span>
+        <a href="#" class="link">Главная /</a> <span class="cur-link">Стоматологические инструменты</span>
     </div>
     <h1 class="title">{{ i.title }}</h1>
     <p class="text">{{ i.description }}

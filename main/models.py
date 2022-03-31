@@ -51,7 +51,6 @@ class New(models.Model):
 
 
 
-
 class Pagephone(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
@@ -111,6 +110,11 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
+# class Hashtag(models.Model):
+#     title = models.CharField(max_length=255, verbose_name='Hashtag')
+#
+#     def __str__(self):
+#         return self.title
 
 class ServiceHelp(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название')
@@ -137,20 +141,38 @@ class About(models.Model):
     description = models.TextField(verbose_name='Описание')
 
 
-
 class Product(models.Model):
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+        ordering = ['-created_at']
     title = models.CharField(max_length=255, verbose_name='Название')
     image = models.ImageField(verbose_name='Фото')
     description = models.TextField(verbose_name='Описание')
+    created_at = models.DateTimeField(auto_now=True)
+    # hashtags = models.ManyToManyField(to='Hashtag')
+
 
     def __str__(self):
         return self.title
 
+#
+# class SimProduct(models.Model):
+#     title = models.CharField(max_length=255, verbose_name='Название')
+#     image = models.ImageField(verbose_name='Фото')
+#     description = models.TextField(verbose_name='Описание')
+#
+#     def __str__(self):
+#         return self.title
+class Catalog(models.Model):
+    image = models.ImageField(verbose_name="Фото")
 
-class SimProduct(models.Model):
-    title = models.CharField(max_length=255, verbose_name='Название')
-    image = models.ImageField(verbose_name='Фото')
-    description = models.TextField(verbose_name='Описание')
+
+class Category(models.Model):
+    image = models.ImageField(verbose_name="Фото",)
+    title = models.CharField(max_length=255, verbose_name="Название")
+    desc = models.TextField(max_length=255, verbose_name="Описание")
+    is_active = models.BooleanField(default=False, verbose_name="Актуально")
 
     def __str__(self):
         return self.title
@@ -169,6 +191,7 @@ CONTACTS_CHOICES = [
         ('DC', 'Диллерские центры'),
         ('SC', 'Cервисные центры'),
     ]
+
 
 class Contact(models.Model):
     # image = models.ImageField(verbose_name='Фото', default=True)

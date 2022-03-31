@@ -1,7 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render
 # from django.utils.text import Truncator
-from django.utils.text import Truncator
 
 from main.models import *
 
@@ -16,7 +15,9 @@ def index(request):
     photoalbum = PhotoAlbum.objects.all()
     albumblog = AlbumBlog.objects.all()
     pagephone = Pagephone.objects.all()
-    return render(request, 'index.html', locals())
+    context = {"sliders":sliders,"banner":banner, "page":page, "new":new,"mainpage":mainpage,"album":album,"photoalbum":photoalbum,
+               'albumblog':albumblog,"pagephone":pagephone}
+    return render(request, 'index.html', context)
 
 
 
@@ -29,6 +30,7 @@ def search(request):
         results = New.objects.filter(Q(title__istartswith=query) | Q(title__icontains=query)
                                      | Q(title__iendswith=query) | Q(description__istartswith=query)
                                      | Q(description__icontains=query) | Q(description__iendswith=query))
+
     return render(request, 'search.html', locals())
 
 
@@ -37,36 +39,46 @@ def search(request):
 
 def about(request):
     about = About.objects.all()
-    return render(request, 'about.html', locals())
+    context = {"about":about}
+    return render(request, 'about.html', context)
+
 
 def service(request):
     service = Service.objects.all()
     servicehelp = ServiceHelp.objects.all()
-    return render(request, 'service.html',locals())
+    context = {"service":service,"servicehelp":servicehelp }
+    return render(request, 'service.html',context)
+
 
 def contact(request):
     contacts = Contact.objects.all()
     contactdils = ContactDil.objects.all()
     contphone = ContPhone.objects.all()
-    return render(request, 'contacts.html', locals())
+    context = {"contacts":contacts,"contactdils":contactdils, "contphone":contphone }
+    return render(request, 'contacts.html', context)
 
 def catalog(request):
-    return render(request, 'catalog.html')
+    catalog = Catalog.objects.all()
+    category = Category.objects.all()
+    context = {"category":category, "catalog":catalog}
+    return render(request, 'catalog.html', context)
+
 
 def product_inner(request):
     product = Product.objects.all()
-    return render(request, 'product-inner.html', locals())
-
+    context = {"product":product}
+    return render(request, 'product-inner.html', context)
 
 
 def news(requst):
     news = New.objects.filter(is_active=True)[:4]
+    context = {"news":news}
+    return render(requst, 'news.html', context)
 
-    return render(requst, 'news.html', locals())
 
 def news_detail(requst, pk):
     # new = New.objects.filter(is_active=True)[:4]
-
     news_detail = New.objects.get(pk=pk)
-    return render(requst, 'newsdetail.html', locals())
+    context = {"news_detail":news_detail}
+    return render(requst, 'newsdetail.html', context)
 

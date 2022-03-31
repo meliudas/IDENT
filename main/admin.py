@@ -19,4 +19,7 @@ admin.site.register(ContPhone)
 admin.site.register(About)
 admin.site.register(Product)
 admin.site.register(AlbumBlog)
+admin.site.register(Category)
+admin.site.register(Catalog)
+
 
